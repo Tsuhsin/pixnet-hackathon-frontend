@@ -89,9 +89,9 @@ export default {
       .then((response) => {
         this.foodList = response.data.articles;
       })
-      .catch(function (err) {
-          console.log(err);
-      })
+      // .catch(function (err) {
+      //     console.log(err);
+      // })
     },
     getHotelList () {
       axios({
@@ -100,22 +100,22 @@ export default {
       .then((response) => {
         this.hotelList = response.data.articles;
       })
-      .catch(function (err) {
-          console.log(err);
-      })
+      // .catch(function (err) {
+      //     console.log(err);
+      // })
     },
     getSpotList () {
       axios({
         method: 'GET',
         url: 'https://emma.pixnet.cc/blog/articles/search?format=json&key=%22%E5%8F%B0%E7%81%A3%E6%97%85%E9%81%8A%22&content_filter=on&public_after=1546300800&type=tag&per_page=8'})
       .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         this.spotList = response.data.articles;
-        console.log(this.spotList);
+        //console.log(this.spotList);
       })
-      .catch(function (err) {
-          console.log(err);
-      })
+      // .catch(function (err) {
+      //     console.log(err);
+      // })
     },
   }
 }

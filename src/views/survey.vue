@@ -46,7 +46,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">以下是測試的結果<br>打包好行李準備出門玩吧<br>ε٩(๑> ₃ <)۶з</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">以下是測試的結果<br>打包好行李準備出門玩吧</h5>
               <button type="button" @click="close()" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -100,12 +100,12 @@ export default {
         method: 'GET',
         url: 'http://35.193.69.171/homehome-pixnet-hackathon/public/index.php/ques'})
       .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         this.questions = response.data;
       })
-      .catch(function (err) {
-          console.log(err);
-      })
+      // .catch(function (err) {
+      //     console.log(err);
+      // })
     },
     close () {
       document.getElementById('exampleModalCenter').style.display='none';
@@ -114,27 +114,27 @@ export default {
       document.querySelector(".surveyProgress").style.display = 'none';
       document.getElementById('loading').style.display='block';
       document.getElementById('loading').style.opacity='1';
-      var diu = Object.values(this.test)
-      for(var i = 0 ; i <diu.length ; i++){
-        diu[i] = this.mapping[diu[i]];
+      var ans = Object.values(this.test)
+      for(var i = 0 ; i <ans.length ; i++){
+        ans[i] = this.mapping[ans[i]];
       }
-      diu = diu.join();
-      diu = diu.replace(/,/g,'');
-      console.log(diu)
+      ans = ans.join();
+      ans = ans.replace(/,/g,'');
+      //console.log(ans)
       axios({
         method: 'GET',
-        url: `http://35.193.69.171/homehome-pixnet-hackathon/public/index.php/spot/${diu}`})
+        url: `http://35.193.69.171/homehome-pixnet-hackathon/public/index.php/spot/${ans}`})
       .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         this.results = response.data;
         document.getElementById('loading').style.display='none';
         document.getElementById('loading').style.opacity='0';
         document.getElementById('exampleModalCenter').style.display='block';
         document.getElementById('exampleModalCenter').style.opacity='1';
       })
-      .catch(function (err) {
-        console.log(err);
-      })
+      // .catch(function (err) {
+      //   console.log(err);
+      // })
     },
     next () {
       if (this.page<9) {
